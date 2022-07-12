@@ -57,7 +57,7 @@ function should_throw_error_when_pass_to_incorrect_value() {
     local test_cases=(
         "a 1"
         "b a"
-        "1 2"
+        " 2"
         "-10 5"
     )
     for test_case in "${test_cases[@]}"
