@@ -1,0 +1,5 @@
+language: bash
+before_install:
+  - wget -O- https://git.io/shellspec | sh
+script:
+  - shellspec
