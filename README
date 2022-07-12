@@ -1,0 +1,35 @@
+# AIIT システム・ソフトウェア特論課題4
+
+学籍番号: 22445025
+氏名: 川俣 涼
+
+
+## 概要
+最大公約数を計算するシェルスクリプト
+
+## 実行
+
+```bash
+$ ./greatest_common_divisor.sh 120 25
+```
+
+## テスト
+
+```bash
+# 通常のテスト
+$ ./test.sh
+
+```
+
+## 工夫ポイント
+
+通常のテストに加えてBDDのシェルスクリプトテストフレームワークであるShellSpecを使ったテストも追加
+
+https://github.com/shellspec/shellspec
+
+以下で実行可能。
+
+```bash
+$ wget -O- https://git.io/shellspec | sh
+$ shellspec
+```
