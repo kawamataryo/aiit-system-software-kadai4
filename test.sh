@@ -59,6 +59,8 @@ function should_throw_error_when_pass_to_incorrect_value() {
         "b a"
         " 2"
         "-10 5"
+        "1.1 5"
+        "1.1 -1.55"
     )
     for test_case in "${test_cases[@]}"
     do
