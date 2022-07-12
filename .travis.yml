@@ -1,5 +1,7 @@
 language: bash
-before_install:
-  - wget -O- https://git.io/shellspec | sh
+before_script:
+  - wget https://git.io/shellspec
+  - chmod +x ./shellspec
+  - ./shellspec -y
 script:
   - shellspec

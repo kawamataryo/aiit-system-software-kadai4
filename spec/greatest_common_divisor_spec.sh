@@ -17,15 +17,17 @@ Describe 'greatest_common_divisor.sh'
   End
 
   Describe 'exception handling'
-    It "should return error when non-numeric arguments are passed"
-      When call ./greatest_common_divisor.sh "a" "b"
-      The error should include "Error: Incorrect type of arguments"
-      The status should be failure
+    Parameters
+      "-10" 20
+      20 "-10"
+      "a" "b"
+      1
+      1 2.1
+      2.111 2
     End
-
-    It "should return error when number of arguments does not match"
-      When call ./greatest_common_divisor.sh 1
-      The error should include "Error: Incorrect number of arguments"
+    Example "should return error of $1 and $2"
+      When call ./greatest_common_divisor.sh "$1" "$2"
+      The error should include "Error:"
       The status should be failure
     End
   End
