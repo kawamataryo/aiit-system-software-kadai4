@@ -13,6 +13,8 @@ $ ./greatest_common_divisor.sh 120 25
 ```bash
 # 通常のテスト
 $ ./test.sh
+
 # shellspec(https://github.com/shellspec/shellspec)を使ったテスト
+# 事前に `wget -O- https://git.io/shellspec | sh` でshellspecのセットアップが必要
 $ shellspec
 ```
