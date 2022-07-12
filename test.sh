@@ -15,6 +15,9 @@ source "./greatest_common_divisor.sh"
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+ERROR_COUNT=0
 
 function should_caluculate_gcd() {
     local test_cases=(
@@ -26,6 +29,7 @@ function should_caluculate_gcd() {
         "120 32 8"
         "7 2 1"
     )
+
     for test_case in "${test_cases[@]}"
     do
         local num1
@@ -40,9 +44,10 @@ function should_caluculate_gcd() {
         result=$(main "$num1" "$num2")
 
         if [[ "$result" == "$gcd" ]]; then
-            echo -e "${GREEN}Success: g.c.d of $num1 and $num2 is $gcd"
+            echo -e "${GREEN}Success: g.c.d of $num1 and $num2 is $gcd${NC}"
         else
-            echo -e "${GREEN}Error: g.c.d of $num1 and $num2 is $result"
+            echo -e "${GREEN}Error: g.c.d of $num1 and $num2 is $result${NC}"
+            ERROR_COUNT+=1
         fi
     done
 }
@@ -52,7 +57,7 @@ function should_throw_error_when_pass_to_incorrect_value() {
     local test_cases=(
         "a 1"
         "b a"
-        " 2"
+        "1 2"
         "-10 5"
     )
     for test_case in "${test_cases[@]}"
@@ -68,9 +73,10 @@ function should_throw_error_when_pass_to_incorrect_value() {
 
         result=$(validate_args "$num1" "$num2" 2>/dev/null)
         if [[ $? -ne 0 ]] ; then
-            echo -e "${GREEN}Success: throw error when $num1 and $num2"
+            echo -e "${GREEN}Success: throw error when $num1 and $num2${NC}"
         else
-            echo -e "${RED}Error: Don't throw error when $num1 and $num2"
+            echo -e "${RED}Error: Don't throw error when $num1 and $num2${NC}"
+            ERROR_COUNT+=1
         fi
     done
 }
@@ -78,6 +84,12 @@ function should_throw_error_when_pass_to_incorrect_value() {
 function run_test() {
     should_caluculate_gcd
     should_throw_error_when_pass_to_incorrect_value
+
+    if [[ $ERROR_COUNT -eq 0 ]] ; then
+        exit 0
+    else
+        exit 1
+    fi
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
