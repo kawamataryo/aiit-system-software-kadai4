@@ -23,7 +23,7 @@ $ ./test.sh
 
 ## 工夫ポイント
 
-通常のテストに加えてBDDのシェルスクリプトテストフレームワークであるShellSpecを使ったテストも追加
+通常のテストに加えてBDDのシェルスクリプトテストフレームワークであるShellSpecを使ったテストも追加しました。
 
 https://github.com/shellspec/shellspec
 
