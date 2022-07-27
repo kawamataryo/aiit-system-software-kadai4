@@ -23,13 +23,20 @@ $ ./test.sh
 
 ## 工夫ポイント
 
+### ShellSpecでのテストを追加
 通常のテストに加えてBDDのシェルスクリプトテストフレームワークであるShellSpecを使ったテストも追加しました。
 
 https://github.com/shellspec/shellspec
 
-以下で実行可能。
+以下で実行可能です。
 
 ```bash
 $ wget -O- https://git.io/shellspec | sh
 $ shellspec
 ```
+
+### テストの出力結果を色付け
+test.shのテストにて、結果を標準出力・標準エラー出力に出力する際に、エラーは赤、成功は緑で出力されるようにしました
+
+### parameterテスト風の実装
+test.shのテストにて、parameterテスト風に、テスト内容を配列で管理できるようにしてコード数を削減しました。

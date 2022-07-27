@@ -46,7 +46,7 @@ function should_caluculate_gcd() {
         if [[ "$result" == "$gcd" ]]; then
             echo -e "${GREEN}Success: g.c.d of $num1 and $num2 is $gcd${NC}"
         else
-            echo -e "${GREEN}Error: g.c.d of $num1 and $num2 is $result${NC}"
+            echo -e "${RED}Error: g.c.d of $num1 and $num2 is $result${NC}" 1>&2
             ERROR_COUNT+=1
         fi
     done
@@ -77,7 +77,7 @@ function should_throw_error_when_pass_to_incorrect_value() {
         if [[ $? -ne 0 ]] ; then
             echo -e "${GREEN}Success: throw error when $num1 and $num2${NC}"
         else
-            echo -e "${RED}Error: Don't throw error when $num1 and $num2${NC}"
+            echo -e "${RED}Error: Don't throw error when $num1 and $num2${NC}" 1>&2
             ERROR_COUNT+=1
         fi
     done
